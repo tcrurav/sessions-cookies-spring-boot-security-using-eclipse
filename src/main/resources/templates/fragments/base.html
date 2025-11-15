@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+
+	<div th:fragment="header">
+		<h1>My Header</h1>
+
+		<div sec:authorize="isAuthenticated()">
+			Welcome <span sec:authentication="name"></span>
+			<form th:action="@{/logout}" method="post">
+				<button type="submit">Log out</button>
+			</form>
+		</div>
+
+		<div sec:authorize="!isAuthenticated()">
+			<a th:href="@{/login}">Login</a>
+		</div>
+
+	</div>
+
+	<div th:fragment="footer">
+		<p>&copy; 2025 Bicycles - Gofio Solutions S.L.</p>
+	</div>
+
+</body>
+</html>

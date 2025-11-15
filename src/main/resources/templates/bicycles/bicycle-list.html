@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Bicycle List</title>
+</head>
+<body>
+	<header th:replace="~{fragments/base::header}"></header>
+
+	<h1>Bicycle List</h1>
+	<a th:href="@{/bicycles/create}">Add New Bicycle</a>
+	<div>
+		<div th:each="b : ${bicycles}">
+			<span th:text="${b.brand}"></span> 
+			<span> - </span> 
+			<span th:text="${b.model}"></span> 
+			<a th:href="@{/bicycles/{id}/edit(id=${b.id})}">Edit</a>
+			<a th:href="@{/bicycles/{id}/destroy(id=${b.id})}">Delete</a>
+		</div>
+	</div>
+
+	<footer th:insert="~{fragments/base::footer}"></footer>
+</body>
+</html>

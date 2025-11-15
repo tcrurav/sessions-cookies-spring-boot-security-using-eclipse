@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Bicycle List</title>
+</head>
+<body>
+	<header th:replace="~{fragments/base::header}"></header>
+
+	<h1>Create Bicycle</h1>
+
+	<form th:action="@{/bicycles}" th:object="${bicycle}" method="post">
+		<label>Brand:</label>
+		<input type="text" th:field="*{brand}" /> <br />
+
+		<label>Model:</label>
+		<input type="text" th:field="*{model}" /> <br />
+		
+		<button type="submit">Save</button>
+	</form>
+	
+	<a th:href="@{/bicycles}">Back to List</a>
+	
+	<footer th:insert="~{fragments/base::footer}"></footer>	
+</body>
+</html>
